@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreyash Dwivedi's Podcast</title>
+    <title>Shreyash Dwivedi</title>
     <style>
         /* Reset CSS */
         * {
@@ -15,24 +15,49 @@
         /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #f2f7ff; /* Light blue background */
             color: #333;
             overflow-x: hidden;
         }
 
         /* Header Styles */
         header {
-            background-color: #222;
+            background-color: #1a237e; /* Dark blue header */
             padding: 20px;
             color: #fff;
             text-align: center;
+            background-image: url('header-bg.jpg'); /* Add background image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay to darken the image */
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.8;
         }
 
         /* Navigation Styles */
         nav {
-            background-color: #444;
+            background-color: rgba(26, 35, 126, 0.8); /* Semi-transparent dark blue background */
             padding: 10px 0;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         nav ul {
@@ -44,6 +69,7 @@
         nav ul li {
             display: inline;
             margin-right: 20px;
+            transition: transform 0.3s ease;
         }
 
         nav ul li a {
@@ -53,21 +79,67 @@
         }
 
         nav ul li a:hover {
-            color: #ff6600;
+            color: #ffcc00; /* Yellow on hover */
         }
 
         /* Main Content Styles */
         main {
             padding: 20px;
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange items in a column */
+            align-items: center; /* Center align items horizontally */
         }
 
+        .profile-tile {
+            width: 100%; /* Occupy full width initially */
+            max-width: 300px; /* Limit maximum width */
+            background-color: #ffffff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add space between the profile tile and sections */
+            text-align: center; /* Center align content */
+            transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+        }
+
+        .profile-tile:hover {
+            transform: translateY(-5px); /* Move tile up on hover */
+        }
+
+        .profile-image {
+            width: 150px; /* Adjust image width */
+            height: 150px; /* Adjust image height */
+            border-radius: 50%; /* Rounded corners */
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-size: 1.5em;
+            color: #1a237e; /* Dark blue */
+            margin-bottom: 10px;
+        }
+
+        /* Section Styles */
         section {
-            margin-bottom: 40px;
+            width: 100%; /* Occupy full width */
+            max-width: 800px; /* Limit maximum width */
+            background-color: #ffffff; /* White background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Add space between sections */
+            text-align: center; /* Center align content */
+            transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+        }
+
+        section:hover {
+            transform: translateY(-5px); /* Move section up on hover */
         }
 
         h2 {
-            color: #ff6600;
+            color: #1a237e; /* Dark blue heading */
             margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
 
         p {
@@ -76,7 +148,7 @@
 
         /* Footer Styles */
         footer {
-            background-color: #222;
+            background-color: #1a237e; /* Dark blue footer */
             color: #fff;
             text-align: center;
             padding: 20px;
@@ -86,41 +158,70 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Media Queries */
+        @media only screen and (max-width: 600px) {
+            .profile-tile {
+                max-width: 100%; /* Make the profile tile occupy full width on small screens */
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Shreyash Dwivedi's Podcast</h1>
+        <h1>Shreyash Dwivedi</h1>
+        <p>Student | Podcast Creator</p>
     </header>
     
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#episodes">Episodes</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#podcast">My Podcast</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     
     <main>
+        <div class="profile-tile">
+            <img src="profile-image.jpg" alt="Profile Image" class="profile-image">
+            <h2 class="profile-name">Shreyash Dwivedi</h2>
+        </div>
+        
         <section id="about">
-            <h2>About</h2>
-            <p>Placeholder text about the podcast. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id augue ut mauris venenatis interdum. Donec auctor justo vel lectus ullamcorper, id rhoncus elit volutpat.</p>
+            <h2>About Me</h2>
+            <p>Information about me.</p>
         </section>
-        
-        <section id="episodes">
-            <h2>Episodes</h2>
-            <!-- Add episode list here -->
-            <p>No episodes available yet.</p>
+
+        <section id="academics">
+            <h2>Academics</h2>
+            <p>Information about my academics.</p>
         </section>
-        
+
+        <section id="podcast">
+    <h2>My Podcast</h2>
+    <p>Preview of my podcast:</p>
+    <!-- Embed Spotify Podcast -->
+    <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/show/21nvUzxK9yqQGX5pLQ5N6q?utm_source=generator&theme=0" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </section>
+
+
+
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <p>Information about my portfolio.</p>
+        </section>
+
         <section id="contact">
-            <h2>Contact</h2>
-            <p>Contact information. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id augue ut mauris venenatis interdum. Donec auctor justo vel lectus ullamcorper, id rhoncus elit volutpat.</p>
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me via email or connect with me on social media.</p>
         </section>
+        
     </main>
     
     <footer>
-        <p>&copy; 2024 Shreyash Dwivedi's Podcast</p>
+        <p>&copy; 2024 Shreyash Dwivedi</p>
     </footer>
 </body>
 </html>
