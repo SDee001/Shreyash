@@ -240,6 +240,33 @@
                 font-size: 2rem;
             }
         }
+        .podcast-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Adjust spacing between the iframe and the link */
+}
+
+.podcast-container a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.podcast-container a:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+.podcast-container {
+    flex-direction: column;
+}
+
+@media (min-width: 600px) {
+    .podcast-container {
+        flex-direction: row;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -275,10 +302,32 @@
             </section>
               
             <section id="podcast" class="section">
-                <h2>My Podcast</h2>
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/21nvUzxK9yqQGX5pLQ5N6q?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <h2>My Podcast</h2>
+    <div class="podcast-container">
+        <div class="iframe-container">
+    <iframe 
+        width="360" height="360"
+        src="https://www.youtube.com/embed/videoseries?si=USEvQEHi4803Okmw&amp;list=PLkNlr7ZG2T4wWl0t6TC4TIYlS64D-krSk" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen 
+        loading="lazy">
+    </iframe>
+</div>
+        <a href="https://youtube.com/playlist?list=PLkNlr7ZG2T4wWl0t6TC4TIYlS64D-krSk&si=rXZXL6_GlRSDkI7S" title="Podcast" class="podcast-link">
+            <svg width="40" height="40" stroke="#FFFFFF" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Podcast Circle and Waves -->
+                <circle cx="12" cy="12" r="2"></circle>
+                <path d="M12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"></path>
+                <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20z"></path>
+            </svg>
+        </a>
+    </div>
+</section>
 
-                <p>'Welcome to The SDee Podcast—a captivating blend of science, fiction, storytelling, and personal experiences. Join host Shreyash on an inspiring journey that ignites curiosity and sparks thought-provoking discussions. Embark on thrilling adventures, unravel scientific mysteries, and be inspired by the triumphs of the human spirit. Tune in now for a unique audio experience that will leave you craving more. Your support and engagement fuel our passion for creating enriching content. Welcome aboard!'</p>
+               <p>'Welcome to The SDee Podcast—a captivating blend of science, fiction, storytelling, and personal experiences. Join host Shreyash on an inspiring journey that ignites curiosity and sparks thought-provoking discussions. Embark on thrilling adventures, unravel scientific mysteries, and be inspired by the triumphs of the human spirit. Tune in now for a unique audio experience that will leave you craving more. Your support and engagement fuel our passion for creating enriching content. Welcome aboard!'</p>
             </section>
 
             <section id="portfolio" class="section">
@@ -288,7 +337,7 @@
 
             <section id="contact" class="section">
                 <h2>Contact Me</h2>
-                <p>Feel free to reach out to me via email or connect with me on social media.</p>
+                <p>Feel free to reach out to me via email or connect with me on Youtube.</p>
                 <div class="social-links">
                   <a href="mailto:SDee001@proton.me" title="Email">
                   <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -299,8 +348,13 @@
                     <a href="https://www.github.com/SDee001" title="GitHub">
                         <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     </a>
-                    <a href="#" title="LinkedIn">
-                        <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    <a href="https://www.youtube.com/@SDee001/featured" title="YouTube">
+    <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22.54 6.42A2.79 2.79 0 0 0 20.7 4.8C18.85 4.5 12 4.5 12 4.5s-6.85 0-8.7.3A2.79 2.79 0 0 0 1.46 6.42 29.36 29.36 0 0 0 1.2 12a29.36 29.36 0 0 0 .26 5.58 2.79 2.79 0 0 0 1.84 1.62c1.85.3 8.7.3 8.7.3s6.85 0 8.7-.3a2.79 2.79 0 0 0 1.84-1.62A29.36 29.36 0 0 0 22.8 12a29.36 29.36 0 0 0-.26-5.58z"></path>
+        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
+    </svg>
+</a>
+
                     </a>
                    
                  </div>
