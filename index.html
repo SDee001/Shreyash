@@ -419,18 +419,12 @@
                 bubblesContainer.appendChild(bubble);
             }
         }
-
-        // Create initial bubbles
         createBubbles();
-
-        // Recreate bubbles periodically
         setInterval(() => {
             const bubblesContainer = document.getElementById('bubbles');
             bubblesContainer.innerHTML = '';
             createBubbles();
         }, 30000);
-
-        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -442,8 +436,6 @@
                 }
             });
         });
-
-        // Reveal sections on scroll
         const observerOptions = {
             threshold: 0.1
         };
