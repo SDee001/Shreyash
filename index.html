@@ -292,11 +292,104 @@
     background-color: #cc0000;
     transform: scale(1.05);
 }
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    flex-direction: column;
+}
 
+.loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2rem;
+}
+
+.loader-bubble {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    animation: loader-bubble 2s ease-in-out infinite;
+    opacity: 0;
+}
+
+.loader-bubble:nth-child(1) { animation-delay: 0s; }
+.loader-bubble:nth-child(2) { animation-delay: 0.4s; }
+.loader-bubble:nth-child(3) { animation-delay: 0.8s; }
+
+.loading-text {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-top: 1rem;
+    font-weight: 500;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.progress-container {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease-out;
+}
+
+@keyframes loader-bubble {
+    0% {
+        transform: scale(0) translate(0, 0);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translate(150px, 150px);
+        opacity: 0;
+    }
+}
 
     </style>
 </head>
 <body>
+    <div class="loader-container" id="loader">
+    <div class="loader">
+        <div class="loader-bubble"></div>
+        <div class="loader-bubble"></div>
+        <div class="loader-bubble"></div>
+    </div>
+    <div class="loading-text">Loading...</div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+</div>
     <div id="root">
         <nav>
             <div class="logo">SD</div>
@@ -452,6 +545,79 @@
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
         });
+    
+document.addEventListener('DOMContentLoaded', () => {
+    const loader = document.getElementById('loader');
+    const progressBar = document.getElementById('progress');
+    const loadingText = document.querySelector('.loading-text');
+    let loadProgress = 0;
+
+    
+    const elementsToLoad = [
+        ...document.getElementsByTagName('img'),
+        ...document.getElementsByTagName('iframe'),
+        document.querySelector('.bubbles')
+    ].filter(Boolean);
+
+    const totalElements = elementsToLoad.length;
+    let loadedElements = 0;
+
+   
+    function updateProgress(progress) {
+        progressBar.style.width = `${progress}%`;
+        loadingText.textContent = `Loading... ${Math.round(progress)}%`;
+    }
+
+   
+    function simulateMinLoading() {
+        const interval = setInterval(() => {
+            if (loadProgress < 100) {
+                loadProgress = Math.min(loadProgress + 1, 100);
+                updateProgress(loadProgress);
+            } else {
+                clearInterval(interval);
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 500);
+                }, 500);
+            }
+        }, 20);
+    }
+
+    
+    function elementLoaded() {
+        loadedElements++;
+        loadProgress = (loadedElements / totalElements) * 100;
+        updateProgress(loadProgress);
+    }
+
+    
+    elementsToLoad.forEach(element => {
+        if (element.complete) {
+            elementLoaded();
+        } else {
+            element.addEventListener('load', elementLoaded);
+            element.addEventListener('error', elementLoaded); 
+        }
+    });
+
+    
+    simulateMinLoading();
+
+    
+    setTimeout(() => {
+        if (!loader.classList.contains('hidden')) {
+            loadProgress = 100;
+            updateProgress(100);
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    }, 5000); 
+});
     </script>
 </body>
 </html>
