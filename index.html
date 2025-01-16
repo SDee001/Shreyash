@@ -3,466 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
-    <meta name="referrer" content="no-referrer">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <link rel="stylesheet" href="https://example.com/style.css" integrity="sha256-..." crossorigin="anonymous">
-    <title>Shreyash Dwivedi - Portfolio</title>
+    <title>SDee Portfolio</title>
     <link rel="icon" type="image/png" href="logo.png">
     <style>
-        .bubbles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
+        @font-face {
+            font-family: 'Samsung Sans';
+            src: url('https://fonts.cdnfonts.com/s/16525/SamsungSans-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
         }
 
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
-            animation: float-bubble var(--duration) infinite linear;
-            opacity: var(--opacity);
+        :root {
+            --bg-color: #121212;
+            --text-color: #f0f8ff;
+            --accent-color: #64ffda;
+            --secondary-color: #1f1f1f;
+            --font-primary: 'Samsung Sans', sans-serif;
+            --profile-border: #87CEEB; 
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #4a90e2;
-            --secondary: #67b26f;
-            --text: #ffffff;
-            --background: #1a1a1a;
+            color: var(--text-color);
         }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(45deg, var(--background), #2a2a2a);
-            color: var(--text);
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-primary);
+            line-height: 1.7;
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        #root {
-            position: relative;
-            z-index: 1;
-        }
-
-        .content {
-            padding: 2rem;
-        }
-
-        nav {
+        header {
+            background: var(--secondary-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: clamp(0.5rem, 2vw, 2rem);
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            width: 100%;
-            box-sizing: border-box;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .logo {
-            font-size: clamp(1rem, 1.5vw, 1.5rem);
-            font-weight: bold;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            flex-shrink: 0;
-        }
-
-        .nav-links {
+        header nav {
             display: flex;
-            gap: clamp(0.5rem, 2vw, 2rem);
-            flex-wrap: nowrap;
-            justify-content: flex-end;
-            flex-grow: 1;
-            margin-left: clamp(1rem, 2vw, 2rem);
+            gap: 2rem;
+            margin-left: auto;
         }
 
-        .nav-links a {
-            color: var(--text);
+        header nav a {
+            color: var(--text-color);
             text-decoration: none;
-            transition: color 0.3s ease;
-            position: relative;
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
-            white-space: nowrap;
-            padding: clamp(0.25rem, 0.5vw, 0.5rem);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            transition: width 0.3s ease;
+        header nav a:hover {
+            color: var(--accent-color);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .profile-tile {
-            text-align: center;
+        .content-wrapper {
             padding: 2rem;
         }
 
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 4rem 2rem;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #1a1a1a, var(--bg-color));
+        }
+
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
+            border: 4px solid var(--profile-border);
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
-        .profile-image[alt="Shreyash Dwivedi"] {
-            alt: "Shreyash Dwivedi";
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
         .section {
-            padding: 4rem 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            margin-bottom: 5rem;
+            padding: 2rem 0;
         }
 
-        .podcast-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
         }
 
-        .podcast-button {
-            display: inline-block;
-            background-color: #ff0000;
-            color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        .section p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
-        .podcast-button:hover {
-            background-color: #cc0000;
-            transform: scale(1.05);
+        #podcast {
+            margin: 4rem 0;
+        }
+
+        #contact {
+            padding-bottom: 3rem;
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: var(--text);
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(26, 26, 26, 0.95);
-        }
-
-        .loader-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--background);
-            display: flex;
-            justify-content: center;
+            gap: 1.5rem;
             align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-            flex-direction: column;
+            margin-top: 2rem;
+            justify-content: flex-start;
         }
 
-        .loader-container.hidden {
-            opacity: 0;
-            visibility: hidden;
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: opacity 0.2s;
+            padding: 0.5rem;
         }
 
-        .progress-container {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin-top: 1rem;
-            overflow: hidden;
+        .social-link:hover {
+            opacity: 0.8;
         }
 
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            transition: width 0.3s ease-out;
+        .social-link svg {
+            display: block;
+            width: 24px;
+            height: 24px;
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+        footer {
+            background: var(--secondary-color);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            color: var(--text-color);
+            font-size: 0.9rem;
         }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        footer p a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        @keyframes float-bubble {
-            0% {
-                transform: translate(var(--start-x), 110vh) rotate(0deg);
-            }
-            100% {
-                transform: translate(var(--end-x), -10vh) rotate(360deg);
-            }
-        }
-
-        @keyframes loader-bubble {
-            0% {
-                transform: scale(0) translate(0, 0);
-                opacity: 0;
-            }
-            25% {
-                opacity: 1;
-            }
-            75% {
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1) translate(150px, 150px);
-                opacity: 0;
-            }
+        footer p a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .content {
+            header {
+                padding: 0.8rem 1rem;
+            }
+
+            header nav {
+                gap: 1rem;
+            }
+
+            .container {
                 padding: 1rem;
             }
 
-            p {
-                font-size: 0.95rem;
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                hyphens: auto;
-            }
-
-            nav {
-                padding: 0.75rem;
-                background: rgba(26, 26, 26, 0.98);
-            }
-
-            .nav-links {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                background: rgba(26, 26, 26, 0.98);
-                padding: clamp(0.5rem, 2vh, 1rem);
-                justify-content: space-around;
-                backdrop-filter: blur(10px);
-                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-                margin: 0;
-                flex-wrap: wrap;
-            }
-
-            .nav-links a {
-                font-size: clamp(0.7rem, 2.5vw, 0.9rem);
-                padding: clamp(0.25rem, 1vw, 0.5rem);
-                text-align: center;
-                flex: 1 1 auto;
-                min-width: min-content;
-            }
-
-            .logo img {
-                width: clamp(35px, 5vw, 45px);
-                height: clamp(35px, 5vw, 45px);
-            }
-
-            .hero {
-                padding-top: 80px;
-                min-height: 100vh;
-                height: auto;
-            }
-
-            .profile-tile {
-                padding: 1rem;
-            }
-
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
-
-            .profile-name {
+            .hero h2 {
                 font-size: 2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
             }
 
             .section {
-                padding: 3rem 1rem;
-            }
-
-            .section h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .podcast-container {
-                padding: 0 1rem;
-            }
-
-            .podcast-container iframe {
-                width: 100%;
-                height: 250px;
-                max-width: 100%;
-            }
-
-            .podcast-button {
-                width: 100%;
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .social-links {
-                gap: 2rem;
-                flex-wrap: wrap;
-                padding: 1rem;
-            }
-
-            .social-links a {
-                font-size: 1.3rem;
-            }
-
-            .footer {
-                padding: 1.5rem 1rem;
-                margin-bottom: 60px;
-            }
-
-            .loader {
-                width: 150px;
-                height: 150px;
-            }
-
-            .progress-container {
-                width: 150px;
-            }
-
-            .loading-text {
-                font-size: 1.2rem;
+                margin-bottom: 3rem;
             }
         }
+.logo {
+            display: flex;
+            align-items: center;
+        }
 
-        @media (max-width: 480px) {
-            .profile-image {
-                width: 120px;
-                height: 120px;
-            }
-
-            .profile-name {
-                font-size: 1.8rem;
-            }
-
-            .section h2 {
-                font-size: 1.6rem;
-            }
-
-            .nav-links a {
-                font-size: 0.8rem;
-            }
-
-            .podcast-container iframe {
-                height: 200px;
-            }
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
-    <div class="loader-container" id="loader">
-        <div class="loader">
-            <div class="loader-bubble"></div>
-            <div class="loader-bubble"></div>
-            <div class="loader-bubble"></div>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="SDee Logo">
         </div>
-        <div class="loading-text">Loading...</div>
-        <div class="progress-container">
-            <div class="progress-bar" id="progress"></div>
-        </div>
-    </div>
-    <div id="root">
         <nav>
-            <div class="logo">
-                <img src="logo.png" alt="SDee Logo" style="width: 60px; height: 60px;">
-            </div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#academics">Academics</a>
-                <a href="#podcast">Podcast</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <a href="#about">About</a>
+            <a href="#academics">Academics</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
         </nav>
-        <div class="content">
-            <section class="hero">
-                <div class="profile-tile">
-                    <img src="profile-image.jpg" alt="Shreyash Dwivedi" class="profile-image" loading="lazy">
-                    <h1 class="profile-name">Shreyash Dwivedi</h1>
-                    <p class="subtitle">Student | Podcast Creator</p>
-                </div>
-            </section>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="hero">
+            <img src="profile-image.jpg" alt="Shreyash Dwivedi" class="profile-image">
+            <h2>Shreyash Dwivedi</h2>
+            <p>Student | Open Source Enthusiast | Developer</p>
+        </div>
+
+        <div class="container">
             <section id="about" class="section">
                 <h2>About Me</h2>
-                <p>I am an electrical engineering student who is an enthusiast in many topics related to science, technology, and tech that is connected to open-source software, as well as the world around us.</p>
+                <p>I am an electrical engineering student passionate about science, technology, and open-source software. I enjoy solving problems and contributing to innovative projects.</p>
             </section>
-            <section id="academics" class="section">
-                <h2>Academics</h2>
-                <p>I am currently pursuing Electrical Engineering from a government college in Chhattisgarh, India.</p>
-            </section>
+
             <section id="podcast" class="section">
                 <h2>My Podcast</h2>
                 <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
@@ -471,165 +249,75 @@
                 <br></br>
                 <p>Welcome to The SDee Podcast—a captivating blend of science, fiction, storytelling, and personal experiences. Join host Shreyash on an inspiring journey that ignites curiosity and sparks thoughtful conversations.</p>
             </section>
+
+            <section id="academics" class="section">
+                <h2>Academics</h2>
+                <p>I am pursuing Electrical Engineering at a government college in Chhattisgarh, India. My academic journey is fueled by curiosity and a drive for excellence.</p>
+            </section>
+
             <section id="portfolio" class="section">
                 <h2>Portfolio</h2>
-                <p>I have contributed to multiple sections of uBlock Origin, and currently, I am developing a dark mode extension for Firefox.</p>
+                <p>I have contributed to several open-source projects, including enhancements to uBlock Origin. Currently, I am working on a dark mode extension for Firefox to improve user experience.</p>
             </section>
+
             <section id="contact" class="section">
-                <h2>Contact Me</h2>
+                <h2>Contact</h2>
                 <p>Feel free to reach out to me via email or connect with me on YouTube.</p>
                 <div class="social-links">
-                    <a href="mailto:SDee001@proton.me" title="Email">
-                        <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </a>
-                       <a href="https://www.github.com/SDee001" title="GitHub">
-                        <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    </a>
-                        <a href="https://www.youtube.com/@SDee001/featured" title="YouTube">
-    <svg width="24" height="24" stroke="currentColor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22.54 6.42A2.79 2.79 0 0 0 20.7 4.8C18.85 4.5 12 4.5 12 4.5s-6.85 0-8.7.3A2.79 2.79 0 0 0 1.46 6.42 29.36 29.36 0 0 0 1.2 12a29.36 29.36 0 0 0 .26 5.58 2.79 2.79 0 0 0 1.84 1.62c1.85.3 8.7.3 8.7.3s6.85 0 8.7-.3a2.79 2.79 0 0 0 1.84-1.62A29.36 29.36 0 0 0 22.8 12a29.36 29.36 0 0 0-.26-5.58z"></path>
-        <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
-    </svg> </a>
+    
+    <a href="mailto:SDee001@proton.me" title="Email" class="social-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+            <polyline points="22,6 12,13 2,6"/>
+        </svg>
+    </a>
+    
+    
+    <a href="https://www.github.com/SDee001" title="GitHub" class="social-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+    </a>
+    
+  
+    <a href="https://www.youtube.com/@SDee001/featured" title="YouTube" class="social-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22.54 6.42a2.79 2.79 0 0 0-1.84-1.62C18.85 4.5 12 4.5 12 4.5s-6.85 0-8.7.3A2.79 2.79 0 0 0 1.46 6.42 29.36 29.36 0 0 0 1.2 12a29.36 29.36 0 0 0 .26 5.58 2.79 2.79 0 0 0 1.84 1.62c1.85.3 8.7.3 8.7.3s6.85 0 8.7-.3a2.79 2.79 0 0 0 1.84-1.62A29.36 29.36 0 0 0 22.8 12a29.36 29.36 0 0 0-.26-5.58z"/>
+            <polygon points="9.75,15.02 15.5,12 9.75,8.98"/>
+        </svg>
+    </a>
+</div>
+
+<style>
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.social-link:hover {
+    opacity: 0.8;
+}
+
+.social-link svg {
+    display: block;
+}
+</style>
         </div>
     </section>
 </div>
 
-<footer class="footer">
-    © 2025 Shreyash Dwivedi
-</footer>
-</div>
-
-<div class="bubbles" id="bubbles"></div>
-
-<script>
-    function createBubbles() {
-        const bubblesContainer = document.getElementById('bubbles');
-        const numberOfBubbles = 15;
-
-        for (let i = 0; i < numberOfBubbles; i++) {
-            const bubble = document.createElement('div');
-            bubble.className = 'bubble';
-            
-            const size = Math.random() * 100 + 50;
-            const startX = Math.random() * 100;
-            const endX = startX + (Math.random() * 40 - 20);
-            const duration = Math.random() * 10 + 15;
-            const delay = Math.random() * -20;
-            const opacity = Math.random() * 0.3 + 0.1;
-
-            bubble.style.width = `${size}px`;
-            bubble.style.height = `${size}px`;
-            bubble.style.setProperty('--start-x', `${startX}vw`);
-            bubble.style.setProperty('--end-x', `${endX}vw`);
-            bubble.style.setProperty('--duration', `${duration}s`);
-            bubble.style.setProperty('--opacity', opacity);
-            bubble.style.animationDelay = `${delay}s`;
-
-            bubblesContainer.appendChild(bubble);
-        }
-    }
-    createBubbles();
-    setInterval(() => {
-        const bubblesContainer = document.getElementById('bubbles');
-        bubblesContainer.innerHTML = '';
-        createBubbles();
-    }, 30000);
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.section').forEach(section => {
-        observer.observe(section);
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const loader = document.getElementById('loader');
-        const progressBar = document.getElementById('progress');
-        const loadingText = document.querySelector('.loading-text');
-        let loadProgress = 0;
-
-        const elementsToLoad = [
-            ...document.getElementsByTagName('img'),
-            ...document.getElementsByTagName('iframe'),
-            document.querySelector('.bubbles')
-        ].filter(Boolean);
-
-        const totalElements = elementsToLoad.length;
-        let loadedElements = 0;
-
-        function updateProgress(progress) {
-            progressBar.style.width = `${progress}%`;
-            loadingText.textContent = `Loading... ${Math.round(progress)}%`;
-        }
-
-        function simulateMinLoading() {
-            const interval = setInterval(() => {
-                if (loadProgress < 100) {
-                    loadProgress = Math.min(loadProgress + 1, 100);
-                    updateProgress(loadProgress);
-                } else {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        loader.classList.add('hidden');
-                        setTimeout(() => {
-                            loader.style.display = 'none';
-                        }, 500);
-                    }, 500);
-                }
-            }, 20);
-        }
-
-        function elementLoaded() {
-            loadedElements++;
-            loadProgress = (loadedElements / totalElements) * 100;
-            updateProgress(loadProgress);
-        }
-
-        elementsToLoad.forEach(element => {
-            if (element.complete) {
-                elementLoaded();
-            } else {
-                element.addEventListener('load', elementLoaded);
-                element.addEventListener('error', elementLoaded);
-            }
-        });
-
-        simulateMinLoading();
-
-        setTimeout(() => {
-            if (!loader.classList.contains('hidden')) {
-                loadProgress = 100;
-                updateProgress(100);
-                loader.classList.add('hidden');
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 500);
-            }
-        }, 5000);
-    });
-</script>
+    <footer>
+        <p>&copy; 2025 Shreyash Dwivedi
+    </footer>
 </body>
 </html>
