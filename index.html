@@ -5,394 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shreyash Dwivedi</title>
     <link rel="icon" type="image/png" href="logo.png">
-    <style>
-        @font-face {
-            font-family: 'Samsung Sans';
-            src: url('https://fonts.cdnfonts.com/s/16525/SamsungSans-Regular.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        :root {
-            --bg-color: #121212;
-            --text-color: #f0f8ff;
-            --accent-color: #64ffda;
-            --secondary-color: #1f1f1f;
-            --font-primary: 'Samsung Sans', sans-serif;
-            --profile-border: #87CEEB; 
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            color: var(--text-color);
-        }
-
-        body {
-            background: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: var(--secondary-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        header nav {
-            display: flex;
-            gap: 2rem;
-            margin-left: auto;
-        }
-
-        header nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        header nav a:hover {
-            color: var(--accent-color);
-        }
-
-        .content-wrapper {
-            padding: none;
-        }
-
-        .hero {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 4rem 2rem;
-            min-height: 90vh;
-            background: linear-gradient(135deg, #1a1a1a, var(--bg-color));
-        }
-
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--profile-border);
-            margin-bottom: 2rem;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .section {
-            margin-bottom: 5rem;
-            padding: 2rem 0;
-            scroll-margin-top: 5rem;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .section p {
-            font-size: 1.1rem;
-            color: var(--text-color);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        #podcast {
-            margin: 4rem 0;
-        }
-
-        #contact {
-            padding-bottom: 3rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            margin-top: 2rem;
-            justify-content: flex-start;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--text-color);
-            transition: opacity 0.2s;
-            padding: 0.5rem;
-        }
-
-        .social-link:hover {
-            opacity: 0.8;
-        }
-
-        .social-link svg {
-            display: block;
-            width: 24px;
-            height: 24px;
-        }
-
-        footer {
-            background: var(--secondary-color);
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
-
-        footer p a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        footer p a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 0.8rem 1rem;
-            }
-
-            header nav {
-                gap: 1rem;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .section {
-                margin-bottom: 3rem;
-            }
-        }
-.logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-.subscribe-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #ff0033;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .subscribe-button:hover {
-            background-color: #2b2a33;
-            transform: translateY(-2px);
-        }
-
-.subscribe-button-2 {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #D0D0D0;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .subscribe-button-2:hover {
-            background-color: #252324;
-            transform: translateY(-2px);
-        }
-.subscribe-button-3 {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0D5BE1;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .subscribe-button-3:hover {
-            background-color: #00008B;
-            transform: translateY(-2px);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">
             <img src="logo.png" alt="SDee Logo">
         </div>
-        <nav>
+        
+        <nav class="desktop-nav">
             <a href="#about">About</a>
             <a href="#academics">Academics</a>
             <a href="#podcast">Podcast</a>
-            <a href="#blog">Blog</a>
+            <a href="#Blog">Blog</a> 
             <a href="#portfolio">Portfolio</a>
         </nav>
+
+        <button class="hamburger-menu" id="hamburger-btn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
-<main>
-    <div class="content-wrapper">
-        <div class="hero">
-            <img src="profile-image.jpg" alt="Shreyash Dwivedi" class="profile-image">
-            <h2>Shreyash Dwivedi</h2>
-            <p>Student | Podcast Creator</p>
-        </div>
 
-        <div class="container">
-            <section id="about" class="section">
-                <h2>About Me</h2>
-                <p>I am an electrical engineering student passionate about science, technology, and open-source software.</p>
-            </section>
+    <div id="mobile-nav-overlay">
+        <button id="close-menu-btn" aria-label="Close menu">&times;</button>
+        <nav class="mobile-nav-links">
+            <a href="#about">About</a>
+            <a href="#academics">Academics</a>
+            <a href="#podcast">Podcast</a>
+            <a href="#Blog">Blog</a>
+            <a href="#portfolio">Portfolio</a>
+        </nav>
+    </div>
 
-            <section id="podcast" class="section">
-                <h2>My Podcast</h2>
-                <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
-                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/videoseries?si=USEvQEHi4803Okmw&amp;list=PLkNlr7ZG2T4wWl0t6TC4TIYlS64D-krSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                </div>
-             <br></br>
-                <a href="https://www.youtube.com/@SDee001/featured" class="subscribe-button" target="_blank">Subscribe to the Podcast</a>
+    <main>
+        <div class="content-wrapper">
+            <div class="hero">
+                <img src="profile-image.jpg" alt="Shreyash Dwivedi" class="profile-image">
+                <h2>Shreyash Dwivedi</h2>
+                <p>Student | Podcast Host</p>
+            </div>
+
+            <div class="container">
+                <section id="about" class="section">
+                    <h2>About Me</h2>
+                    <p>I am an Electrical Engineering student passionate about science, technology, and open-source software.</p>
+                </section>
+
+                <section id="podcast" class="section">
+                    <h2>My Podcast</h2>
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/videoseries?si=USEvQEHi4803Okmw&amp;list=PLkNlr7ZG2T4wWl0t6TC4TIYlS64D-krSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                    </div>
                 <br></br>
-                <p>Welcome to The SDee Podcast—a captivating blend of science, fiction, storytelling, and personal experiences. Join host Shreyash on an inspiring journey that ignites curiosity and sparks thoughtful conversations.</p>
-            </section>
+                    <a href="https://www.youtube.com/@SDee001/featured" class="subscribe-button" target="_blank">Subscribe to the Podcast</a>
+                    <br></br>
+                    <p>Welcome to The SDee Podcast—a captivating blend of science, fiction, storytelling, and personal experiences. Join host Shreyash on an inspiring journey that ignites curiosity and sparks thoughtful conversations.</p>
+                </section>
+                    
+                <section id="Blog" class="section">
+                    <h2>Finding The Existence</h2>
+                    <p>A space for thoughts that question, wander, and refuse to settle. Not answers, just reflections on the mysteries we pretend to understand.</p>
+                    <a href="https://sdee001.github.io/Finding-The-Existence/" class="subscribe-button-2" target="_blank">Read The Blog</a>
+                </section>
                 
-                <section id="blog" class="section">
-                <h2>Finding The Existence</h2>
-                <p>A space for thoughts that question, wander, and refuse to settle. Not answers, just reflections on the mysteries we pretend to understand..</p>
-            <br></br>
-                <a href="https://sdee001.github.io/Finding-The-Existence/" class="subscribe-button-2" target="_blank">Read The Blog</a>
-            </section>
-            <section id="academics" class="section">
-                <h2>Academics</h2>
-                <p>I am pursuing Electrical Engineering at a government college in Chhattisgarh, India. I, with my friend, recently compiled a book titled "Fundamentals of Power" on the data based on our institute; you can read it for free here.</p>
-            <a href="https://sdee001.github.io/Fundamentals-of-Power/" class="subscribe-button-3" target="_blank">Download</a>
-            </section>
+                <section id="academics" class="section">
+                    <h2>Academics</h2>
+                    <p>I am pursuing Electrical Engineering at a Government college in Chhattisgarh, India. I, with my friend, recently compiled a book titled "Fundamentals of Power" on the data based on our institute; you can read it for free here.</p>
+                    <a href="https://sdee001.github.io/Fundamentals-of-Power/" class="subscribe-button-3" target="_blank">Download</a>
+                </section>
 
-            <section id="portfolio" class="section">
-                <h2>Portfolio</h2>
-                <p>I’m currently exploring a mix of creative and intellectual pursuits - hosting a podcast on YouTube, playing chess, reading books, and writing blogs to share my thoughts and experiences.</p>
-            </section>
+                <section id="portfolio" class="section">
+                    <h2>Portfolio</h2>
+                    <p>I’m currently exploring a mix of creative and intellectual pursuits - hosting a podcast on YouTube, playing chess, reading books, and writing blogs to share my thoughts and experiences.</p>
+                </section>
 
-            <section id="contact" class="section">
-                <h2>Contact</h2>
-                <p>Feel free to reach out to me via email or connect with me on YouTube.</p>
-                <div class="social-links">
+                <section id="contact" class="section">
+                    <h2>Contact</h2>
+                    <p>Feel free to reach out to me via email or connect with me on YouTube.</p>
+                    <div class="social-links">
+        
+                        <a href="mailto:SDee001@proton.me" title="Email" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </a>
+                        
+                        
+                        <a href="https://www.github.com/SDee001" title="GitHub" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                        
+                    
+                        <a href="https://www.youtube.com/@SDee001/featured" title="YouTube" class="social-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22.54 6.42a2.79 2.79 0 0 0-1.84-1.62C18.85 4.5 12 4.5 12 4.5s-6.85 0-8.7.3A2.79 2.79 0 0 0 1.46 6.42 29.36 29.36 0 0 0 1.2 12a29.36 29.36 0 0 0 .26 5.58 2.79 2.79 0 0 0 1.84 1.62c1.85.3 8.7.3 8.7.3s6.85 0 8.7-.3a2.79 2.79 0 0 0 1.84-1.62A29.36 29.36 0 0 0 22.8 12a29.36 29.36 0 0 0-.26-5.58z"/>
+                                <polygon points="9.75,15.02 15.5,12 9.75,8.98"/>
+                            </svg>
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+        </div> 
+
+        <footer>
+            <div class="container text-center">© <span id="year"></span> Shreyash Dwivedi</div>
+        </footer>
+    </main>
+
+    <script src="script.js" defer></script>
     
-    <a href="mailto:SDee001@proton.me" title="Email" class="social-link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
-            <polyline points="22,6 12,13 2,6"/>
-        </svg>
-    </a>
-    
-    
-    <a href="https://www.github.com/SDee001" title="GitHub" class="social-link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-        </svg>
-    </a>
-    
-  
-    <a href="https://www.youtube.com/@SDee001/featured" title="YouTube" class="social-link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22.54 6.42a2.79 2.79 0 0 0-1.84-1.62C18.85 4.5 12 4.5 12 4.5s-6.85 0-8.7.3A2.79 2.79 0 0 0 1.46 6.42 29.36 29.36 0 0 0 1.2 12a29.36 29.36 0 0 0 .26 5.58 2.79 2.79 0 0 0 1.84 1.62c1.85.3 8.7.3 8.7.3s6.85 0 8.7-.3a2.79 2.79 0 0 0 1.84-1.62A29.36 29.36 0 0 0 22.8 12a29.36 29.36 0 0 0-.26-5.58z"/>
-            <polygon points="9.75,15.02 15.5,12 9.75,8.98"/>
-        </svg>
-    </a>
-</div>
-
-<style>
-.social-links {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-}
-
-.social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: inherit;
-    transition: opacity 0.2s;
-}
-
-.social-link:hover {
-    opacity: 0.8;
-}
-
-.social-link svg {
-    display: block;
-}
-</style>
-        </div>
-    </section>
-</div>
-
-    <footer>
-    <div class="container text-center">© <span id="year"></span> Shreyash Dwivedi</div>
-  </footer>
-</main>
-
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</main>
 </body>
 </html>
