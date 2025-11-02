@@ -246,7 +246,7 @@
             <a href="#portfolio">Portfolio</a>
         </nav>
     </header>
-
+<main>
     <div class="content-wrapper">
         <div class="hero">
             <img src="profile-image.jpg" alt="Shreyash Dwivedi" class="profile-image">
@@ -338,7 +338,13 @@
 </div>
 
     <footer>
-    <div class="container text-center">© <span id="year"></span>Shreyash Dwivedi</div>
-  </footer>
+    <div class="container text-center">© <span id="year"></span> Shreyash Dwivedi</div>
+  </footer>
+</main>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</main>
 </body>
 </html>
