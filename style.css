@@ -1,0 +1,388 @@
+@font-face {
+    font-family: 'Samsung Sans';
+    src: url('https://fonts.cdnfonts.com/s/16525/SamsungSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --bg-color: #121212;
+    --text-color: #f0f8ff;
+    --accent-color: #64ffda;
+    --secondary-color: #1f1f1f;
+    --font-primary: 'Samsung Sans', sans-serif;
+    --profile-border: #87CEEB;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
+}
+
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    padding-top: 5rem; 
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+header {
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    position: fixed;  
+    width: 100%;       
+
+    
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+header nav.desktop-nav {
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+header nav.desktop-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header nav.desktop-nav a:hover {
+    color: var(--accent-color);
+}
+
+.content-wrapper {
+    padding: none;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 2rem;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #1a1a1a, var(--bg-color));
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid var(--profile-border);
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.section {
+    margin-bottom: 5rem;
+    padding: 2rem 0;
+    scroll-margin-top: 5rem; 
+}
+
+.section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.section p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+#podcast {
+    margin: 4rem 0;
+}
+
+#contact {
+    padding-bottom: 3rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 2rem;
+    justify-content: flex-start;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: opacity 0.2s;
+    padding: 0.5rem;
+}
+
+.social-link:hover {
+    opacity: 0.8;
+}
+
+.social-link svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+footer {
+    background: var(--secondary-color);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+footer p a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.subscribe-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0033;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscribe-button:hover {
+    background-color: #2b2a33;
+    transform: translateY(-2px);
+}
+
+.subscribe-button-2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #D0D0D0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscribe-button-2:hover {
+    background-color: #252324;
+    transform: translateY(-2px);
+}
+
+.subscribe-button-3 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0D5BE1;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscribe-button-3:hover {
+    background-color: #00008B;
+    transform: translateY(-2px);
+}
+
+
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburger-menu span {
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--text-color);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+
+
+#mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(18, 18, 18, 0.98); 
+    backdrop-filter: blur(5px);
+    z-index: 1001;
+
+
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#mobile-nav-overlay.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#close-menu-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 2rem;
+    background: transparent;
+    border: none;
+    font-size: 3rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.mobile-nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.mobile-nav-links a:hover {
+    color: var(--accent-color);
+}
+
+
+
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem 1rem;
+    }
+
+ 
+    header nav.desktop-nav {
+        display: none;
+    }
+
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .section {
+        margin-bottom: 3rem;
+    }
+
+
+    body {
+        padding-top: 4.6rem;
+    }
+}
+
+
