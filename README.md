@@ -1,6 +1,6 @@
 # My Personal Portfolio Website
 
-## *  **[Weebsite](https://sdee001.github.io/Shreyash/)**
+## *  **[Website](https://sdee001.github.io/Shreyash/)**
 
 ### What You'll Find
 
