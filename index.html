@@ -4,121 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shreyash Dwivedi</title>
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;500;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="SDee Logo">
-        </div>
-        
-        <nav class="desktop-nav">
-            <a href="#about">About</a>
-            <a href="#academics">Academics</a>
-            <a href="#podcast">Podcast</a>
-            <a href="#Blog">Blog</a> 
-            <a href="#portfolio">Portfolio</a>
-        </nav>
 
-        <button class="hamburger-menu" id="hamburger-btn" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </header>
-
-    <div id="mobile-nav-overlay">
-        <button id="close-menu-btn" aria-label="Close menu">&times;</button>
-        <nav class="mobile-nav-links">
-            <a href="#about">About</a>
-            <a href="#academics">Academics</a>
-            <a href="#podcast">Podcast</a>
-            <a href="#Blog">Blog</a>
-            <a href="#portfolio">Portfolio</a>
-        </nav>
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-menu" id="close-menu">&times;</button>
+        <a href="#about">About</a>
+        <a href="#podcast">Podcast</a>
+        <a href="#Blog">Blog</a>
+        <a href="#academics">Academics</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
     </div>
 
-    <main>
-        <div class="content-wrapper">
-            <div class="hero">
-                <img src="profile-image.jpg" alt="Shreyash Dwivedi" class="profile-image">
-                <h2>Shreyash Dwivedi</h2>
-                <p>Student | Podcast Host</p>
-            </div>
-
-            <div class="container">
-                <section id="about" class="section">
-                    <h2>About Me</h2>
-                    <p>I am an Electrical Engineering student passionate about science, technology, and open-source software.</p>
-                </section>
-
-                <section id="podcast" class="section">
-                    <h2>My Podcast</h2>
-                    <div style="position: relative; width: 100%; padding-bottom: 56.25%;">
-                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube-nocookie.com/embed/videoseries?si=USEvQEHi4803Okmw&amp;list=PLkNlr7ZG2T4wWl0t6TC4TIYlS64D-krSk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-                    </div>
-                <br></br>
-                    <a href="https://www.youtube.com/@SDee001/featured" class="subscribe-button" target="_blank">Subscribe to the Podcast</a>
-                    <br></br>
-                    <p>Welcome to The SDee Podcast—a captivating blend of science, fiction, storytelling, and personal experiences. Join host Shreyash on an inspiring journey that ignites curiosity and sparks thoughtful conversations.</p>
-                </section>
-                    
-                <section id="Blog" class="section">
-                    <h2>Finding The Existence</h2>
-                    <p>A space for thoughts that question, wander, and refuse to settle. Not answers, just reflections on the mysteries we pretend to understand.</p>
-                    <a href="https://sdee001.github.io/Finding-The-Existence/" class="subscribe-button-2" target="_blank">Read The Blog</a>
-                </section>
-                
-                <section id="academics" class="section">
-                    <h2>Academics</h2>
-                    <p>I am pursuing Electrical Engineering at a Government college in Chhattisgarh, India. I, with my friend, recently compiled a book titled "Fundamentals of Power" on the data based on our institute; you can read it for free.</p>
-                    <a href="https://sdee001.github.io/EE-Collective/" class="subscribe-button-3" target="_blank">Here</a>
-                </section>
-
-                <section id="portfolio" class="section">
-                    <h2>Portfolio</h2>
-                    <p>I’m currently exploring a mix of creative and intellectual pursuits - hosting a podcast on YouTube, playing chess, reading books, and writing blogs to share my thoughts and experiences.</p>
-                </section>
-
-                <section id="contact" class="section">
-                    <h2>Contact</h2>
-                    <p>Feel free to reach out to me via email or connect with me on YouTube.</p>
-                    <div class="social-links">
+    <div class="wrapper">
         
-                        <a href="mailto:SDee001@proton.me" title="Email" class="social-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                        </a>
-                        
-                        
-                        <a href="https://www.github.com/SDee001" title="GitHub" class="social-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                            </svg>
-                        </a>
-                        
+        <header>
+            <div class="nav-bar">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="SDee Logo">
+                    <span>SHREYASH</span>
+                </a>
+                
+                <nav class="desktop-nav">
+                    <a href="#about" class="nav-link">ABOUT</a>
+                    <a href="#podcast" class="nav-link">PODCAST</a>
+                    <a href="#Blog" class="nav-link">BLOG</a>
+                    <a href="#academics" class="nav-link">ACADEMICS</a>
+                    <a href="#portfolio" class="nav-link">PORTFOLIO</a>
+                    <a href="#contact" class="nav-link">CONTACT</a>
+                </nav>
+
+                <button class="hamburger" id="hamburger-btn">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-inner">
+                    <img src="profile-image.jpg" alt="Profile" class="profile-pic">
                     
-                        <a href="https://www.youtube.com/@SDee001/featured" title="YouTube" class="social-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22.54 6.42a2.79 2.79 0 0 0-1.84-1.62C18.85 4.5 12 4.5 12 4.5s-6.85 0-8.7.3A2.79 2.79 0 0 0 1.46 6.42 29.36 29.36 0 0 0 1.2 12a29.36 29.36 0 0 0 .26 5.58 2.79 2.79 0 0 0 1.84 1.62c1.85.3 8.7.3 8.7.3s6.85 0 8.7-.3a2.79 2.79 0 0 0 1.84-1.62A29.36 29.36 0 0 0 22.8 12a29.36 29.36 0 0 0-.26-5.58z"/>
-                                <polygon points="9.75,15.02 15.5,12 9.75,8.98"/>
-                            </svg>
+                    <div>
+                        <h1>SHREYASH<br>DWIVEDI</h1>
+                        <p class="tagline">Student <span style="color:#444">/</span> Podcast Host</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid-container">
+                
+                <section id="about" class="grid-item">
+                    <span class="section-label">01 // Introduction</span>
+                    <h2>About Me</h2>
+                    <p>I am an Electrical Engineering student passionate about science, technology, and open-source software. Driven by curiosity and a minimalist philosophy.</p>
+                </section>
+
+                <section id="podcast" class="grid-item">
+                    <span class="section-label">02 // The SDee Podcast</span>
+                    <h2>Listen & Explore</h2>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?si=USEvQEHi4803Okmw&amp;list=PLkNlr7ZG2T4wWl0t6TC4TIYlS64D-krSk" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <p>A captivating blend of science, fiction, storytelling, and personal experiences. Join me on an inspiring journey that ignites curiosity.</p>
+                    <a href="https://www.youtube.com/@SDee001/featured" target="_blank" class="btn">
+                        SUBSCRIBE ON YOUTUBE
+                    </a>
+                </section>
+
+                <section id="Blog" class="grid-item half">
+                    <span class="section-label">03 // Writing</span>
+                    <h2>Finding The Existence</h2>
+                    <p>A space for thoughts that question, wander, and refuse to settle.</p>
+                    <a href="https://sdee001.github.io/Finding-The-Existence/" target="_blank" class="btn">READ THE BLOG</a>
+                </section>
+
+                <section id="academics" class="grid-item half">
+                    <span class="section-label">04 // Engineering</span>
+                    <h2>Academics</h2>
+                    <p>Pursuing Electrical Engineering in Chhattisgarh, India. Co-author of "Fundamentals of Power", a free comprehensive guide available now.</p>
+                    <a href="https://sdee001.github.io/EE-Collective/" target="_blank" class="btn">READ BOOK</a>
+                </section>
+
+                <section id="portfolio" class="grid-item">
+                    <span class="section-label">05 // Work</span>
+                    <h2>Portfolio</h2>
+                    <p>Currently exploring a mix of creative and intellectual pursuits - hosting a podcast, playing chess, reading books, and writing blogs.</p>
+                </section>
+
+                <section id="contact" class="grid-item" style="border-bottom: none;">
+                    <span class="section-label">06 // Connect</span>
+                    <h2>Get In Touch</h2>
+                    <p>Feel free to reach out to me via email or connect with me on YouTube.</p>
+                    
+                    <div class="social-row">
+                        <a href="mailto:SDee001@proton.me" class="social-icon" title="Email">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                        <a href="https://www.github.com/SDee001" class="social-icon" title="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@SDee001/featured" class="social-icon" title="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.79 2.79 0 0 0-1.84-1.62C18.85 4.5 12 4.5 12 4.5s-6.85 0-8.7.3A2.79 2.79 0 0 0 1.46 6.42 29.36 29.36 0 0 0 1.2 12a29.36 29.36 0 0 0 .26 5.58 2.79 2.79 0 0 0 1.84 1.62c1.85.3 8.7.3 8.7.3s6.85 0 8.7-.3a2.79 2.79 0 0 0 1.84-1.62A29.36 29.36 0 0 0 22.8 12a29.36 29.36 0 0 0-.26-5.58z"/><polygon points="9.75,15.02 15.5,12 9.75,8.98"/></svg>
                         </a>
                     </div>
                 </section>
             </div>
-
-        </div> 
+        </main>
 
         <footer>
-            <div class="container text-center">© <span id="year"></span> Shreyash Dwivedi</div>
+            <p>© <span id="year">2024</span> Shreyash Dwivedi. All rights reserved.</p>
         </footer>
-    </main>
+    </div>
 
-    <script src="script.js" defer></script>
-    
+    <script src="script.js"></script>
 </body>
 </html>
