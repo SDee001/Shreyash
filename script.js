@@ -1,47 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.getElementById('year').textContent = new Date().getFullYear();
 
-    
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+const hamburger = document.getElementById('hamburger-btn');
+const closeBtn = document.getElementById('close-menu');
+const menu = document.getElementById('mobile-menu');
+const links = document.querySelectorAll('.mobile-menu a');
 
+function toggleMenu() {
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+}
 
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+hamburger.addEventListener('click', toggleMenu);
+closeBtn.addEventListener('click', toggleMenu);
+links.forEach(link => link.addEventListener('click', toggleMenu));
 
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const headerOffset = 90;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    function openMenu() {
-        if (mobileNavOverlay) {
-            mobileNavOverlay.classList.add('active');
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
         }
-
-        document.body.classList.add('no-scroll');
-    }
-
-
-    function closeMenu() {
-        if (mobileNavOverlay) {
-            mobileNavOverlay.classList.remove('active');
-        }
-
-        document.body.classList.remove('no-scroll');
-    }
-
-
-    if (hamburgerBtn) {
-        hamburgerBtn.addEventListener('click', openMenu);
-    }
-
-    if (closeMenuBtn) {
-        closeMenuBtn.addEventListener('click', closeMenu);
-    }
-
-
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
     });
-
 });
