@@ -394,3 +394,13 @@ footer {
     color: var(--bg-color);
     border-color: var(--text-main);
 }
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
