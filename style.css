@@ -218,7 +218,6 @@ header {
 
 /* ---------------- GRID ---------------- */
 
-/* ================= GRID ================= */
 
 .grid-container {
     display: grid;
@@ -254,12 +253,12 @@ header {
     margin-bottom: 1rem;
 }
 
-/* Remove all old half-grid logic */
+
 .grid-item.half {
     grid-column: auto;
 }
 
-/* Mobile */
+
 @media (max-width: 900px) {
 
     .grid-container {
